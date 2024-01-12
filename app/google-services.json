@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "439704731190",
+    "project_id": "gigs-and-care",
+    "storage_bucket": "gigs-and-care.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439704731190:android:73eba7eaaa23abeb1fa297",
+        "android_client_info": {
+          "package_name": "com.example.gigsandcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439704731190-s1k29vgu5124f0jup7v4gks37ou0nkco.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gigsandcare",
+            "certificate_hash": "fb21bf56fff83f0318794e5856079e17200f2419"
+          }
+        },
+        {
+          "client_id": "439704731190-m548nl7ripd6ddn7hp4qlcgo17ccb1vn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEBbmH1WiUR-15AhOejSTpA8LgFqS-dLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439704731190-m548nl7ripd6ddn7hp4qlcgo17ccb1vn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
