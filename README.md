@@ -7,10 +7,6 @@
 | Hadyan Alhafizh    | Hipster    |
 
 # Gigs & Care
-<p align="center">
-<img src="" width="100%" alt="GigsAndCare"/>
-</p>
-
 Gigs & Care adalah platform inovatif yang memadukan kegembiraan hiburan dan kebaikan sosial. Dengan fokus pada pengalaman konser, aplikasi ini menghadirkan kesempatan bagi pengguna untuk berkontribusi pada amal tanpa mengorbankan kesenangan mereka.
 
 ## Features of Gigs & Care App
