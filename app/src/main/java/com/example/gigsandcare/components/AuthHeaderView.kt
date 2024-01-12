@@ -43,7 +43,7 @@ fun AuthHeaderView(
         ) {
             Image(
                 modifier = Modifier.size(50.dp),
-                bitmap = ImageBitmap.imageResource(id = R.drawable.soil),
+                bitmap = ImageBitmap.imageResource(id = R.drawable.auth_icon),
                 contentDescription = null
             )
             Text(

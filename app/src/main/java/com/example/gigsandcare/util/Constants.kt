@@ -30,8 +30,8 @@ object Constants {
 
     // Texts
     const val TITLE = "Gigs & Care"
-    const val WELCOME_TITLE = "All in one app for digital farming"
-    const val WELCOME_DESCRIPTION = "Know your soil better with the helps of Agrisight Soil Detector to get the best plants recommendation"
+    const val WELCOME_TITLE = "All in one app that combine entertainment and social good"
+    const val WELCOME_DESCRIPTION = "This app presents as an opportunity for users to contribute to charity without sacrificing their enjoyment"
     const val SIGN_UP_TITLE = "Create your new account"
     const val SIGN_UP_TITLE_WORD = "Create"
     const val SIGN_UP = "Sign Up"

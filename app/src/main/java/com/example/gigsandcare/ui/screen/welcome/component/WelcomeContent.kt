@@ -30,8 +30,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.gigsandcare.R
 import com.example.gigsandcare.ui.theme.colorPrimary
+import com.example.gigsandcare.ui.theme.darkGray
 import com.example.gigsandcare.ui.theme.ghostWhite
-import com.example.gigsandcare.ui.theme.lightGray
 import com.example.gigsandcare.util.Constants.SIGN_IN_BUTTON
 import com.example.gigsandcare.util.Constants.SIGN_UP_BUTTON
 import com.example.gigsandcare.util.Constants.WELCOME_DESCRIPTION
@@ -82,7 +82,7 @@ fun WelcomeContent(
                     .fillMaxWidth()
                     .padding(bottom = 40.dp),
                 text = WELCOME_DESCRIPTION,
-                color = lightGray,
+                color = darkGray,
                 style = TextStyle(
                     fontSize = 16.sp,
                     fontFamily = FontFamily(Font(R.font.josefin_sans_semibold))
