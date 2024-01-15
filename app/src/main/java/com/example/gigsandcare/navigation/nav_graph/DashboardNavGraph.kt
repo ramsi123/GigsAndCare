@@ -13,6 +13,7 @@ import com.example.gigsandcare.ui.screen.home.HomeScreen
 import com.example.gigsandcare.ui.screen.profile.ProfileScreen
 import com.example.gigsandcare.ui.screen.history.HistoryScreen
 import com.example.gigsandcare.ui.screen.program_detail.ProgramDetailScreen
+import com.example.gigsandcare.ui.screen.success_donation.SuccessDonationScreen
 
 fun NavGraphBuilder.dashboardNavGraph(
     navController: NavHostController,
@@ -49,6 +50,9 @@ fun NavGraphBuilder.dashboardNavGraph(
                 bannerId = bannerId,
                 programId = programId
             )
+        }
+        composable(Screen.SuccessDonation.route) {
+            SuccessDonationScreen(navController = navController)
         }
     }
 }

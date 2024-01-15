@@ -8,6 +8,7 @@ import com.example.gigsandcare.util.Constants.PROFILE_SCREEN
 import com.example.gigsandcare.util.Constants.PROGRAM_DETAIL
 import com.example.gigsandcare.util.Constants.SIGN_IN_SCREEN
 import com.example.gigsandcare.util.Constants.SIGN_UP_SCREEN
+import com.example.gigsandcare.util.Constants.SUCCESS_DONATION_SCREEN
 import com.example.gigsandcare.util.Constants.WELCOME_SCREEN
 
 const val ROOT_ROUTE = "root_route"
@@ -27,4 +28,5 @@ sealed class Screen(val route: String) {
     object ProgramDetail : Screen("$PROGRAM_DETAIL/{bannerId}/{programId}") {
         fun programDetailRoute(bannerId: Int, programId: Int) = "$PROGRAM_DETAIL/$bannerId/$programId"
     }
+    object SuccessDonation : Screen(SUCCESS_DONATION_SCREEN)
 }

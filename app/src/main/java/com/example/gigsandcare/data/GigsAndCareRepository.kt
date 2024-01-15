@@ -9,13 +9,17 @@ import com.example.gigsandcare.ui.screen.signin.component.SignInResult
 import com.example.gigsandcare.ui.screen.signin.component.SignInState
 import com.example.gigsandcare.ui.screen.signin.component.UserData
 import com.example.gigsandcare.R
+import com.example.gigsandcare.data.model.UserDonation
 import com.example.gigsandcare.data.model.Program
 import com.example.gigsandcare.data.model.dummyBannerDetail
 import com.example.gigsandcare.data.model.dummyPrograms
+import com.example.gigsandcare.util.Constants.DONATE_COLLECTION
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.toObject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.tasks.await
@@ -24,6 +28,7 @@ import kotlin.coroutines.cancellation.CancellationException
 class GigsAndCareRepository(
     private val context: Context,
     private val auth: FirebaseAuth,
+    private val firestore: FirebaseFirestore,
     private val oneTapClient: SignInClient
 ) {
 
@@ -41,6 +46,31 @@ class GigsAndCareRepository(
         val data = dummyBannerDetail[index]
         return flowOf(data)
     }
+
+    suspend fun addDonation(userDonation: UserDonation) {
+        val updatedData = userDonation.copy(userId = auth.currentUser?.uid ?: "")
+        firestore.collection(DONATE_COLLECTION).add(updatedData).await()
+    }
+
+    /*suspend fun getUserHistoryData(): Flow<UserDonation> {
+        *//*val users = firestore.collection(DONATE_COLLECTION)
+            .whereEqualTo("userId", auth.currentUser?.uid)
+            .get()
+            .await()
+        var userData = UserDonation()
+        for (user in users.documents) {
+            userData = user.toObject<UserDonation>() ?: UserDonation()
+        }
+
+        return flowOf(userData)*//*
+    }*/
+
+    suspend fun getUserHistoryData(): UserDonation? =
+        firestore.collection(DONATE_COLLECTION)
+        .document("XdSWU7EZbvh5OtZ9l0LY")
+        .get()
+        .await()
+        .toObject()
 
     suspend fun signInGoogle(): IntentSender? {
         val result = try {
@@ -153,10 +183,11 @@ class GigsAndCareRepository(
         fun getInstance(
             context: Context,
             auth: FirebaseAuth,
+            firestore: FirebaseFirestore,
             oneTapClient: SignInClient
         ): GigsAndCareRepository =
             instance ?: synchronized(this) {
-                instance ?: GigsAndCareRepository(context, auth, oneTapClient)
+                instance ?: GigsAndCareRepository(context, auth, firestore, oneTapClient)
             }.also { instance = it }
     }
 }

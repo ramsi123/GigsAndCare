@@ -38,7 +38,8 @@ fun RoundedCornerIconButton(
         )
     }
     /*Column(
-        verticalArrangement = Arrangement.spacedBy(3.dp)
+        verticalArrangement = Arrangement.spacedBy(3.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
             modifier = modifier

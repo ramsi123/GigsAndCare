@@ -8,7 +8,6 @@ object Constants {
     const val SIGN_UP_BUTTON = "Sign Up"
     const val GOOGLE_SIGN_IN_BUTTON = "Sign In with Google"
     const val GOOGLE_SIGN_UP_BUTTON = "Sign Up with Google"
-    const val LEARNING_CARD_BUTTON = "Mulai Belajar"
 
     // Screens
     const val WELCOME_SCREEN = "Welcome"
@@ -20,6 +19,10 @@ object Constants {
     const val HISTORY_SCREEN = "History"
     const val PROFILE_SCREEN = "Profile"
     const val PROGRAM_DETAIL = "Program Detail"
+    const val SUCCESS_DONATION_SCREEN = "Success Donation"
+
+    // collection
+    const val DONATE_COLLECTION = "userDonation"
 
     // Labels
     const val EMAIL_LABEL = "Email Address"
@@ -57,6 +60,20 @@ object Constants {
     const val NIGHT_MODE = "Night Mode"
     const val REMINDER_SOUND = "Reminder Sound"
     const val LOG_OUT = "Log Out"
+    const val DONATION_GOAL = "Rp. 5.238.377"
+    const val DONATION_DAYS_REMAINING = "15 Days Left"
+    const val DONATION_PERCENTAGE = "34%"
+    const val BUYING_TICKET_DONATION = "Buying Ticket & Donation"
+    const val DONATION_ONLY = "Donation Only"
+    const val HOW_MUCH_DONATE = "How much you want to donate?"
+    const val INA_CURRENCY = "Rp."
+    const val AMOUNT = "Amount"
+    const val PAYMENT_METHOD = "Select your payment method"
+    const val TEMP_PAYMENT_METHOD = "Mastercard / Visa"
+    const val DONATE_NOW = "Donate Now!"
+    const val SUCCESS_DONATION_TITLE = "Your charity money has been transferred"
+    const val SUCCESS_DONATION_DESCRIPTION = "To see transaction details and proof of payment, check your email"
+    const val BACK_TO_HOME = "Back To Home"
 
     // image description
     const val GREEN_HOUSE = "Green house"
