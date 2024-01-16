@@ -8,13 +8,13 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class ProfileViewModel(private val repository: GigsAndCareRepository) : ViewModel() {
 
-    private val _user: MutableStateFlow<UserData> = MutableStateFlow(UserData(userId = "", email = "", profilePictureUrl = ""))
+    private val _user: MutableStateFlow<UserData> = MutableStateFlow(UserData())
     val user = _user.asStateFlow()
 
     suspend fun signOut() = repository.signOut()
 
     fun getSignedInUser() {
-        _user.value = repository.getSignedInUser() ?: UserData(userId = "", email = "", profilePictureUrl = "")
+        _user.value = repository.getSignedInUser() ?: UserData()
     }
 
 }

@@ -18,8 +18,11 @@ object Constants {
     const val HOME_SCREEN = "Home"
     const val HISTORY_SCREEN = "History"
     const val PROFILE_SCREEN = "Profile"
-    const val PROGRAM_DETAIL = "Program Detail"
+    const val PROGRAM_DETAIL_SCREEN = "Program Detail"
+    const val BUY_TICKET_SCREEN = "Buy Ticket"
     const val SUCCESS_DONATION_SCREEN = "Success Donation"
+    const val CHARITY_PROGRAM_SCREEN = "Charity Program"
+    const val UPCOMING_CONCERT_SCREEN = "Upcoming Concert"
 
     // collection
     const val DONATE_COLLECTION = "userDonation"
@@ -71,9 +74,19 @@ object Constants {
     const val PAYMENT_METHOD = "Select your payment method"
     const val TEMP_PAYMENT_METHOD = "Mastercard / Visa"
     const val DONATE_NOW = "Donate Now!"
-    const val SUCCESS_DONATION_TITLE = "Your charity money has been transferred"
+    const val SUCCESS_DONATION_TITLE = "Your transaction has been completed"
     const val SUCCESS_DONATION_DESCRIPTION = "To see transaction details and proof of payment, check your email"
     const val BACK_TO_HOME = "Back To Home"
+    const val YOUR_ACTIVITY = "Your Activity"
+    const val PEOPLES = "Peoples"
+    const val PEOPLES_HELPED_DESC = "You helped"
+    const val TOTAL_SPEND_FOR_CHARITY = "Total you spend for charity"
+    const val PROGRAMS = "Programs"
+    const val PROGRAMS_DESC = "Total of all programs"
+    const val CONCERT_TICKET_PASS = "Concert Ticket 1 Day Pass"
+    const val DONATION_FOR_CHARITY = "Donation For Charity"
+    const val TOTAL = "Total"
+    const val PAY_NOW = "Pay Now!"
 
     // image description
     const val GREEN_HOUSE = "Green house"

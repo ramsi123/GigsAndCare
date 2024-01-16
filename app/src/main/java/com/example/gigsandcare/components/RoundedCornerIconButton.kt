@@ -1,31 +1,32 @@
 package com.example.gigsandcare.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.gigsandcare.R
-import com.example.gigsandcare.ui.theme.lightYellow
 
 @Composable
 fun RoundedCornerIconButton(
     modifier: Modifier,
     icon: Int,
-    title: String
+    title: String,
+    onClick: () -> Unit
 ) {
-    Box(
+    /*Box(
         modifier = modifier
+            .size(55.dp)
             .background(color = lightYellow, shape = RoundedCornerShape(10.dp))
             .border(width = 2.dp, color = Color.Black, shape = RoundedCornerShape(10.dp))
             .clickable {},
@@ -36,7 +37,7 @@ fun RoundedCornerIconButton(
             bitmap = ImageBitmap.imageResource(id = icon),
             contentDescription = "rounded_corner_icon_button"
         )
-    }
+    }*/
     /*Column(
         verticalArrangement = Arrangement.spacedBy(3.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -55,6 +56,28 @@ fun RoundedCornerIconButton(
         }
         Text(text = title, fontSize = 9.sp)
     }*/
+    Column(
+        modifier = modifier
+            .clickable {
+                onClick()
+            },
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Bottom
+    ) {
+        Image(
+            modifier = Modifier
+                .size(35.dp),
+            painter = painterResource(id = icon),
+            contentDescription = null
+        )
+        Text(
+            modifier = Modifier.paddingFromBaseline(top = 16.dp, bottom = 5.dp),
+            text = title,
+            fontSize = 10.sp,
+            textAlign = TextAlign.Center,
+            lineHeight = 15.sp
+        )
+    }
 }
 
 @Preview
@@ -63,6 +86,7 @@ fun RoundedCornerIconButtonPreview() {
     RoundedCornerIconButton(
         modifier = Modifier,
         icon = R.drawable.charity,
-        title = "Charity Program"
+        title = "Charity Program",
+        onClick = {}
     )
 }

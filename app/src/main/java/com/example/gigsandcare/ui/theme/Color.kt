@@ -13,6 +13,7 @@ val Pink40 = Color(0xFF7D5260)
 //val colorSecondary = Color(0xFFC8EEE2)
 val gray = Color(0xFF4B4F5A)
 val darkGray = Color(0xFF54555A)
+val smoothGray = Color(0xFFF0EAEA)
 val lightGray = Color(0xFFC4C4C4)
 val ghostWhite = Color(0xFFF8F8F8)
 

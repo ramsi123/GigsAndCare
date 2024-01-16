@@ -11,8 +11,12 @@ import com.example.gigsandcare.ui.screen.signin.component.UserData
 import com.example.gigsandcare.R
 import com.example.gigsandcare.data.model.UserDonation
 import com.example.gigsandcare.data.model.Program
+import com.example.gigsandcare.data.model.UserHistory
 import com.example.gigsandcare.data.model.dummyBannerDetail
+import com.example.gigsandcare.data.model.dummyCharityPrograms
+import com.example.gigsandcare.data.model.dummyConcerts
 import com.example.gigsandcare.data.model.dummyPrograms
+import com.example.gigsandcare.data.model.dummyUserHistory
 import com.example.gigsandcare.util.Constants.DONATE_COLLECTION
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.SignInClient
@@ -37,6 +41,11 @@ class GigsAndCareRepository(
         return flowOf(data)
     }
 
+    fun getCharityPrograms(): Flow<List<Program>> {
+        val data = dummyCharityPrograms
+        return flowOf(data)
+    }
+
     fun getProgramDetail(index: Int): Flow<Program> {
         val data = dummyPrograms[index]
         return flowOf(data)
@@ -44,6 +53,21 @@ class GigsAndCareRepository(
 
     fun getBannerDetail(index: Int): Flow<Program> {
         val data = dummyBannerDetail[index]
+        return flowOf(data)
+    }
+
+    fun getCharityProgramDetail(index: Int): Flow<Program> {
+        val data = dummyCharityPrograms[index]
+        return flowOf(data)
+    }
+
+    fun getConcertDetail(index: Int): Flow<Program> {
+        val data = dummyConcerts[index]
+        return flowOf(data)
+    }
+
+    fun getUserHistory(): Flow<List<UserHistory>> {
+        val data = dummyUserHistory
         return flowOf(data)
     }
 
@@ -133,6 +157,7 @@ class GigsAndCareRepository(
     fun getSignedInUser(): UserData? = auth.currentUser?.run {
         UserData(
             userId = uid,
+            name = displayName,
             email = email,
             profilePictureUrl = photoUrl?.toString()
         )

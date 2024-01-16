@@ -30,22 +30,27 @@ fun ProgramDetailScreen(
     ),
     navController: NavHostController,
     bannerId: Int,
-    programId: Int
+    programId: Int,
+    charityProgramId: Int,
+    concertId: Int
 ) {
     var showSheet by remember { mutableStateOf(false) }
     var amount by remember { mutableStateOf("") }
     val sheetState = rememberModalBottomSheetState()
     val bannerDetail by viewModel.bannerDetail.collectAsState()
     val programDetail by viewModel.programDetail.collectAsState()
+    val charityProgramDetail by viewModel.charityProgramDetail.collectAsState()
     val user by viewModel.user.collectAsState()
     val userData by viewModel.userData
 
     // to get data for program detail or banner detail
     LaunchedEffect(key1 = true) {
-        if (bannerId == -1) {
-            viewModel.getProgramDetail(programId)
-        } else {
+        if (programId == -1 && charityProgramId == -1 && concertId == -1) {
             viewModel.getBannerDetail(bannerId)
+        } else if (bannerId == -1 && charityProgramId == -1 && concertId == -1) {
+            viewModel.getProgramDetail(programId)
+        } else if (bannerId == -1 && programId == -1 && concertId == -1) {
+            viewModel.getCharityProgramDetail(charityProgramId)
         }
     }
 
@@ -79,10 +84,61 @@ fun ProgramDetailScreen(
         )
     }
 
+    // if (bannerId == -1) programDetail else bannerDetail
+
     ProgramDetailContent(
         modifier = modifier,
-        program = if (bannerId == -1) programDetail else bannerDetail,
-        onClickBuyTicketAndDonation = {},
+        program = if (programId == -1 && charityProgramId == -1 && concertId == -1) {
+            bannerDetail
+        } else if (bannerId == -1 && charityProgramId == -1 && concertId == -1) {
+            programDetail
+        } else  {
+            charityProgramDetail
+        },
+        onClickBuyTicketAndDonation = {
+            /*if (bannerId == -1) {
+                navController.navigate(
+                    Screen.BuyTicket.buyDetailRoute(
+                        title = programDetail.title,
+                        organizer = programDetail.organizer,
+                        price = programDetail.price
+                    )
+                )
+            } else {
+                navController.navigate(
+                    Screen.BuyTicket.buyDetailRoute(
+                        title = bannerDetail.title,
+                        organizer = bannerDetail.organizer,
+                        price = bannerDetail.price
+                    )
+                )
+            }*/
+            if (programId == -1 && charityProgramId == -1 && concertId == -1) {
+                navController.navigate(
+                    Screen.BuyTicket.buyDetailRoute(
+                        title = bannerDetail.title,
+                        organizer = bannerDetail.organizer,
+                        price = bannerDetail.price
+                    )
+                )
+            } else if (bannerId == -1 && charityProgramId == -1 && concertId == -1) {
+                navController.navigate(
+                    Screen.BuyTicket.buyDetailRoute(
+                        title = programDetail.title,
+                        organizer = programDetail.organizer,
+                        price = programDetail.price
+                    )
+                )
+            } else if (bannerId == -1 && programId == -1 && concertId == -1) {
+                navController.navigate(
+                    Screen.BuyTicket.buyDetailRoute(
+                        title = charityProgramDetail.title,
+                        organizer = charityProgramDetail.organizer,
+                        price = charityProgramDetail.price
+                    )
+                )
+            }
+        },
         onClickDonationOnly = {
             showSheet = true
         }

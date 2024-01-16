@@ -20,8 +20,15 @@ class ProgramDetailViewModel(private val repository: GigsAndCareRepository) : Vi
     private val _programDetail: MutableStateFlow<Program> = MutableStateFlow(Program())
     val programDetail: StateFlow<Program> = _programDetail.asStateFlow()
 
-    val _user: MutableStateFlow<UserDonation> = MutableStateFlow(UserDonation())
+    private val _charityProgramDetail: MutableStateFlow<Program> = MutableStateFlow(Program())
+    val charityProgramDetail: StateFlow<Program> = _charityProgramDetail.asStateFlow()
+
+    private val _concertDetail: MutableStateFlow<Program> = MutableStateFlow(Program())
+    val concertDetail: StateFlow<Program> = _concertDetail.asStateFlow()
+
+    private val _user: MutableStateFlow<UserDonation> = MutableStateFlow(UserDonation())
     val user: StateFlow<UserDonation> = _user.asStateFlow()
+
     val userData = mutableStateOf(UserDonation())
 
     fun getBannerDetail(index: Int) {
@@ -38,6 +45,24 @@ class ProgramDetailViewModel(private val repository: GigsAndCareRepository) : Vi
             repository.getProgramDetail(index)
                 .collect { program ->
                     _programDetail.value = program
+                }
+        }
+    }
+
+    fun getCharityProgramDetail(index: Int) {
+        viewModelScope.launch {
+            repository.getCharityProgramDetail(index)
+                .collect { program ->
+                    _charityProgramDetail.value = program
+                }
+        }
+    }
+
+    fun getConcertDetail(index: Int) {
+        viewModelScope.launch {
+            repository.getConcertDetail(index)
+                .collect { program ->
+                    _concertDetail.value = program
                 }
         }
     }

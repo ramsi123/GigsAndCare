@@ -32,7 +32,6 @@ import com.example.gigsandcare.components.CustomSearchBar
 import com.example.gigsandcare.components.ShortcutMenu
 import com.example.gigsandcare.components.SlidingBanner
 import com.example.gigsandcare.data.model.Program
-import com.example.gigsandcare.ui.screen.signin.component.ProgramList
 import com.example.gigsandcare.ui.theme.ghostWhite
 import com.example.gigsandcare.util.Constants.ANOTHER_PROGRAM
 import com.example.gigsandcare.util.Constants.SEARCH
@@ -49,7 +48,11 @@ fun HomeContent(
     search: String,
     onSearchChange: (String) -> Unit,
     navigateToBannerDetailScreen: (Int) -> Unit,
-    navigateToProgramDetailScreen: (Int) -> Unit
+    navigateToProgramDetailScreen: (Int) -> Unit,
+    navigateToCharityProgram: () -> Unit,
+    navigateToUpcomingConcert: () -> Unit,
+    navigateToCharityNews: () -> Unit,
+    navigateToEventCalendar: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -107,7 +110,12 @@ fun HomeContent(
             viewAll = "",
             navigateToListScreen = {}
         ) {
-            ShortcutMenu()
+            ShortcutMenu(
+                navigateToCharityProgram = navigateToCharityProgram,
+                navigateToUpcomingConcert = navigateToUpcomingConcert,
+                navigateToCharityNews = navigateToCharityNews,
+                navigateToEventCalendar = navigateToEventCalendar
+            )
         }
         Spacer(modifier = modifier.height(15.dp))
         HomeSection(
@@ -115,7 +123,7 @@ fun HomeContent(
             viewAll = VIEW_ALL,
             navigateToListScreen = {}
         ) {
-            ProgramList(
+            ProgramHomeList(
                 programs = programs,
                 onClick = navigateToProgramDetailScreen
             )

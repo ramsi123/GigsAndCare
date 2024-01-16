@@ -15,30 +15,40 @@ import com.example.gigsandcare.util.Constants.EVENT_CALENDAR
 import com.example.gigsandcare.util.Constants.UPCOMING_CONCERT
 
 @Composable
-fun ShortcutMenu() {
+fun ShortcutMenu(
+    modifier: Modifier = Modifier,
+    navigateToCharityProgram: () -> Unit,
+    navigateToUpcomingConcert: () -> Unit,
+    navigateToCharityNews: () -> Unit,
+    navigateToEventCalendar: () -> Unit
+) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         RoundedCornerIconButton(
-            modifier = Modifier.weight(1f),
+            modifier = modifier.weight(1f),
             R.drawable.charity,
-            CHARITY_PROGRAM
+            CHARITY_PROGRAM,
+            onClick = navigateToCharityProgram
         )
-        Spacer(modifier = Modifier.width(10.dp))
+        Spacer(modifier = modifier.width(10.dp))
         RoundedCornerIconButton(
             modifier = Modifier.weight(1f),
             R.drawable.ticket,
-            UPCOMING_CONCERT
+            UPCOMING_CONCERT,
+            onClick = navigateToUpcomingConcert
         )
-        Spacer(modifier = Modifier.width(10.dp))
+        Spacer(modifier = modifier.width(10.dp))
         RoundedCornerIconButton(
-            modifier = Modifier.weight(1f),
+            modifier = modifier.weight(1f),
             R.drawable.newspaper,
-            CHARITY_NEWS
+            CHARITY_NEWS,
+            onClick = navigateToCharityNews
         )
-        Spacer(modifier = Modifier.width(10.dp))
+        Spacer(modifier = modifier.width(10.dp))
         RoundedCornerIconButton(
-            modifier = Modifier.weight(1f),
+            modifier = modifier.weight(1f),
             R.drawable.calendar,
-            EVENT_CALENDAR
+            EVENT_CALENDAR,
+            onClick = navigateToEventCalendar
         )
     }
 }
@@ -46,5 +56,10 @@ fun ShortcutMenu() {
 @Preview
 @Composable
 fun ShortcutMenuPreview() {
-    ShortcutMenu()
+    ShortcutMenu(
+        navigateToCharityProgram = {},
+        navigateToUpcomingConcert = {},
+        navigateToCharityNews = {},
+        navigateToEventCalendar = {}
+    )
 }

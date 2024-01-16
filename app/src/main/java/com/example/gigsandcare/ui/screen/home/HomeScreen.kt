@@ -44,10 +44,26 @@ fun HomeScreen(
             search = it
         },
         navigateToBannerDetailScreen = { bannerId ->
-            navController.navigate(Screen.ProgramDetail.programDetailRoute(bannerId, -1))
+            navController.navigate(Screen.ProgramDetail.programDetailRoute(
+                bannerId = bannerId,
+                programId = -1,
+                charityProgramId = -1,
+                concertId = -1
+            ))
         },
         navigateToProgramDetailScreen = { programId ->
-            navController.navigate(Screen.ProgramDetail.programDetailRoute(-1, programId))
-        }
+            navController.navigate(Screen.ProgramDetail.programDetailRoute(
+                bannerId = -1,
+                programId = programId,
+                charityProgramId = -1,
+                concertId = -1
+            ))
+        },
+        navigateToCharityProgram = {
+            navController.navigate(Screen.CharityProgram.route)
+        },
+        navigateToUpcomingConcert = {},
+        navigateToCharityNews = {},
+        navigateToEventCalendar = {}
     )
 }

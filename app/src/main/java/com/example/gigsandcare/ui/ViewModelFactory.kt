@@ -3,7 +3,9 @@ package com.example.gigsandcare.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.gigsandcare.data.GigsAndCareRepository
+import com.example.gigsandcare.ui.screen.charity_program.CharityProgramViewModel
 import com.example.gigsandcare.ui.screen.forgot_password.ForgotPasswordViewModel
+import com.example.gigsandcare.ui.screen.history.HistoryViewModel
 import com.example.gigsandcare.ui.screen.home.HomeViewModel
 import com.example.gigsandcare.ui.screen.profile.ProfileViewModel
 import com.example.gigsandcare.ui.screen.program_detail.ProgramDetailViewModel
@@ -29,6 +31,10 @@ class ViewModelFactory(private val repository: GigsAndCareRepository) : ViewMode
             return ForgotPasswordViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(ProgramDetailViewModel::class.java)) {
             return ProgramDetailViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(HistoryViewModel::class.java)) {
+            return HistoryViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(CharityProgramViewModel::class.java)) {
+            return CharityProgramViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

@@ -157,7 +157,7 @@ fun ProgramDetailContent(
                 modifier = modifier.weight(1f),
                 shape = RoundedCornerShape(5.dp),
                 contentPadding = PaddingValues(3.dp),
-                enabled = program.availability == "Available",
+                enabled = program.availability == "Available" && program.type == "Concert",
                 onClick = onClickBuyTicketAndDonation
             ) {
                 Text(

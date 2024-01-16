@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Switch
 import androidx.compose.material.icons.Icons
@@ -40,6 +41,7 @@ import coil.compose.AsyncImage
 import com.example.gigsandcare.ui.screen.signin.component.UserData
 import com.example.gigsandcare.R
 import com.example.gigsandcare.ui.theme.ghostWhite
+import com.example.gigsandcare.ui.theme.lightGray
 import com.example.gigsandcare.util.Constants.EDIT_PROFILE
 import com.example.gigsandcare.util.Constants.LOG_OUT
 import com.example.gigsandcare.util.Constants.NIGHT_MODE
@@ -64,34 +66,60 @@ fun ProfileContent(
         modifier = modifier
             .fillMaxSize()
             .background(color = ghostWhite)
-            .padding(start = 20.dp, top = 75.dp, end = 20.dp)
+            .padding(start = 20.dp, top = 60.dp, end = 20.dp)
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        if (user.profilePictureUrl.isNullOrEmpty()) {
-            Image(
-                modifier = modifier.size(100.dp),
-                imageVector = Icons.Default.Person,
-                contentDescription = PROFILE_PICTURE
-            )
-        } else {
-            AsyncImage(
+        Card(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(bottom = 30.dp),
+            shape = RoundedCornerShape(5.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White),
+            elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        ) {
+            Row(
                 modifier = modifier
-                    .size(100.dp)
-                    .clip(CircleShape),
-                model = user.profilePictureUrl,
-                contentDescription = PROFILE_PICTURE,
-                contentScale = ContentScale.Crop
-            )
+                    .fillMaxWidth()
+                    .padding(horizontal = 15.dp, vertical = 20.dp),
+                horizontalArrangement = Arrangement.spacedBy(15.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                if (user.profilePictureUrl.isNullOrEmpty()) {
+                    Image(
+                        modifier = modifier.size(50.dp),
+                        imageVector = Icons.Default.Person,
+                        contentDescription = PROFILE_PICTURE
+                    )
+                } else {
+                    AsyncImage(
+                        modifier = modifier
+                            .size(50.dp)
+                            .clip(CircleShape),
+                        model = user.profilePictureUrl,
+                        contentDescription = PROFILE_PICTURE,
+                        contentScale = ContentScale.Crop
+                    )
+                }
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(2.dp)
+                ) {
+                    Text(
+                        text = user.name ?: "",
+                        color = Color.Black,
+                        fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
+                        fontSize = 18.sp
+                    )
+                    Text(
+                        text = user.email ?: "",
+                        color = lightGray,
+                        fontFamily = FontFamily(Font(R.font.helvetica_neue_regular)),
+                        fontSize = 14.sp
+                    )
+                }
+            }
         }
-        Text(
-            modifier = modifier.padding(top = 10.dp, bottom = 50.dp),
-            text = user.email ?: "",
-            color = Color.Black,
-            fontFamily = FontFamily(Font(R.font.helvetica_neue_bold)),
-            fontSize = 22.sp
-        )
         Card(
             modifier = modifier
                 .fillMaxWidth()
