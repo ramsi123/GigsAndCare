@@ -1,4 +1,4 @@
-package com.example.gigsandcare.ui.screen.charity_program.component
+package com.example.gigsandcare.ui.screen.upcoming_concert.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -6,10 +6,10 @@ import com.example.gigsandcare.data.model.Program
 import com.example.gigsandcare.ui.screen.program_list.component.ProgramListContent
 
 @Composable
-fun CharityProgramContent(
+fun UpcomingConcertContent(
     modifier: Modifier = Modifier,
     title: String,
-    charityPrograms: List<Program>,
+    concerts: List<Program>,
     search: String,
     onSearchChange: (String) -> Unit,
     navigateToProgramDetailScreen: (Int) -> Unit
@@ -17,7 +17,7 @@ fun CharityProgramContent(
     ProgramListContent(
         modifier = modifier,
         title = title,
-        programs = charityPrograms,
+        programs = concerts,
         search = search,
         onSearchChange = {
             onSearchChange(it)

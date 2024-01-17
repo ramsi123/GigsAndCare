@@ -28,7 +28,7 @@ fun AuthHeaderView(
     modifier: Modifier = Modifier
 ) {
     Box(
-        modifier = modifier.height(280.dp),
+        modifier = modifier.height(240.dp),
         contentAlignment = Alignment.Center
     ) {
         Image(
@@ -48,7 +48,7 @@ fun AuthHeaderView(
             )
             Text(
                 text = TITLE,
-                color = Color.White,
+                color = Color.Black,
                 style = TextStyle(
                     fontSize = 40.sp,
                     fontFamily = FontFamily(Font(R.font.josefin_sans_semibold_italic)),

@@ -64,10 +64,16 @@ fun HistoryItem(
                     fontSize = 16.sp
                 )
             }
-            Image(
+            /*Image(
                 modifier = modifier
                     .size(40.dp)
                     .clip(CircleShape),
+                painter = painterResource(id = userHistory.image),
+                contentDescription = null
+            )*/
+            Image(
+                modifier = modifier
+                    .size(40.dp),
                 painter = painterResource(id = userHistory.image),
                 contentDescription = null
             )

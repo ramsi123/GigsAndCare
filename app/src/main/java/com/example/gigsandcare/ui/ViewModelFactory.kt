@@ -9,8 +9,10 @@ import com.example.gigsandcare.ui.screen.history.HistoryViewModel
 import com.example.gigsandcare.ui.screen.home.HomeViewModel
 import com.example.gigsandcare.ui.screen.profile.ProfileViewModel
 import com.example.gigsandcare.ui.screen.program_detail.ProgramDetailViewModel
+import com.example.gigsandcare.ui.screen.program_list.ProgramListViewModel
 import com.example.gigsandcare.ui.screen.signin.SignInViewModel
 import com.example.gigsandcare.ui.screen.signup.SignUpViewModel
+import com.example.gigsandcare.ui.screen.upcoming_concert.UpcomingConcertViewModel
 import com.example.gigsandcare.ui.screen.welcome.WelcomeViewModel
 
 class ViewModelFactory(private val repository: GigsAndCareRepository) : ViewModelProvider.NewInstanceFactory() {
@@ -35,6 +37,10 @@ class ViewModelFactory(private val repository: GigsAndCareRepository) : ViewMode
             return HistoryViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(CharityProgramViewModel::class.java)) {
             return CharityProgramViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(UpcomingConcertViewModel::class.java)) {
+            return UpcomingConcertViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(ProgramListViewModel::class.java)) {
+            return ProgramListViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

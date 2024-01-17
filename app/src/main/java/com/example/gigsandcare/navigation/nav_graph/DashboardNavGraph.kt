@@ -15,7 +15,9 @@ import com.example.gigsandcare.ui.screen.home.HomeScreen
 import com.example.gigsandcare.ui.screen.profile.ProfileScreen
 import com.example.gigsandcare.ui.screen.history.HistoryScreen
 import com.example.gigsandcare.ui.screen.program_detail.ProgramDetailScreen
+import com.example.gigsandcare.ui.screen.program_list.ProgramListScreen
 import com.example.gigsandcare.ui.screen.success_donation.SuccessDonationScreen
+import com.example.gigsandcare.ui.screen.upcoming_concert.UpcomingConcertScreen
 
 fun NavGraphBuilder.dashboardNavGraph(
     navController: NavHostController,
@@ -40,6 +42,12 @@ fun NavGraphBuilder.dashboardNavGraph(
         }
         composable(Screen.CharityProgram.route) {
             CharityProgramScreen(navController = navController)
+        }
+        composable(Screen.UpcomingConcert.route) {
+            UpcomingConcertScreen(navController = navController)
+        }
+        composable(Screen.ProgramList.route) {
+            ProgramListScreen(navController = navController)
         }
         composable(
             route = Screen.ProgramDetail.route,

@@ -1,6 +1,5 @@
 package com.example.gigsandcare.ui.screen.program_detail
 
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gigsandcare.data.GigsAndCareRepository
@@ -9,7 +8,6 @@ import com.example.gigsandcare.data.model.UserDonation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ProgramDetailViewModel(private val repository: GigsAndCareRepository) : ViewModel() {
@@ -25,11 +23,6 @@ class ProgramDetailViewModel(private val repository: GigsAndCareRepository) : Vi
 
     private val _concertDetail: MutableStateFlow<Program> = MutableStateFlow(Program())
     val concertDetail: StateFlow<Program> = _concertDetail.asStateFlow()
-
-    private val _user: MutableStateFlow<UserDonation> = MutableStateFlow(UserDonation())
-    val user: StateFlow<UserDonation> = _user.asStateFlow()
-
-    val userData = mutableStateOf(UserDonation())
 
     fun getBannerDetail(index: Int) {
         viewModelScope.launch {
@@ -64,16 +57,6 @@ class ProgramDetailViewModel(private val repository: GigsAndCareRepository) : Vi
                 .collect { program ->
                     _concertDetail.value = program
                 }
-        }
-    }
-
-    fun getUserHistoryData() {
-        viewModelScope.launch {
-            userData.value = repository.getUserHistoryData() ?: UserDonation()
-            /*repository.getUserHistoryData()
-                .collect { userDonation ->
-                    _user.value = userDonation
-                }*/
         }
     }
 

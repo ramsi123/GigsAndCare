@@ -52,9 +52,10 @@ fun ProgramCardItem(
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Image(
+            modifier = modifier.fillMaxWidth(),
             painter = painterResource(id = program.image),
             contentDescription = program.title,
-            contentScale = ContentScale.Fit,
+            contentScale = ContentScale.FillWidth,
             alignment = Alignment.Center
         )
         Row(

@@ -52,7 +52,8 @@ fun HomeContent(
     navigateToCharityProgram: () -> Unit,
     navigateToUpcomingConcert: () -> Unit,
     navigateToCharityNews: () -> Unit,
-    navigateToEventCalendar: () -> Unit
+    navigateToEventCalendar: () -> Unit,
+    navigateToProgramList: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -121,7 +122,7 @@ fun HomeContent(
         HomeSection(
             title = ANOTHER_PROGRAM,
             viewAll = VIEW_ALL,
-            navigateToListScreen = {}
+            navigateToListScreen = navigateToProgramList
         ) {
             ProgramHomeList(
                 programs = programs,

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
+import android.util.Log
 import com.example.agrisight.ui.common.UiState
 import com.example.gigsandcare.ui.screen.signin.component.SignInResult
 import com.example.gigsandcare.ui.screen.signin.component.SignInState
@@ -46,6 +47,11 @@ class GigsAndCareRepository(
         return flowOf(data)
     }
 
+    fun getConcerts(): Flow<List<Program>> {
+        val data = dummyConcerts
+        return flowOf(data)
+    }
+
     fun getProgramDetail(index: Int): Flow<Program> {
         val data = dummyPrograms[index]
         return flowOf(data)
@@ -76,25 +82,21 @@ class GigsAndCareRepository(
         firestore.collection(DONATE_COLLECTION).add(updatedData).await()
     }
 
-    /*suspend fun getUserHistoryData(): Flow<UserDonation> {
-        *//*val users = firestore.collection(DONATE_COLLECTION)
-            .whereEqualTo("userId", auth.currentUser?.uid)
-            .get()
-            .await()
-        var userData = UserDonation()
-        for (user in users.documents) {
-            userData = user.toObject<UserDonation>() ?: UserDonation()
+    suspend fun getUserHistoryData(): Flow<List<UserDonation>> {
+        return try {
+            val querySnapshot = firestore.collection(DONATE_COLLECTION)
+                .whereEqualTo("userId", auth.currentUser?.uid)
+                .get()
+                .await()
+            val userData = querySnapshot.documents.mapNotNull {
+                it.toObject(UserDonation::class.java)
+            }
+            flowOf(userData)
+        } catch (e: Exception) {
+            Log.e("Error", "Error fetching donation history", e)
+            flowOf(emptyList())
         }
-
-        return flowOf(userData)*//*
-    }*/
-
-    suspend fun getUserHistoryData(): UserDonation? =
-        firestore.collection(DONATE_COLLECTION)
-        .document("XdSWU7EZbvh5OtZ9l0LY")
-        .get()
-        .await()
-        .toObject()
+    }
 
     suspend fun signInGoogle(): IntentSender? {
         val result = try {

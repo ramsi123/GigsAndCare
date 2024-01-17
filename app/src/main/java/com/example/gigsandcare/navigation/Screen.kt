@@ -8,9 +8,11 @@ import com.example.gigsandcare.util.Constants.HISTORY_SCREEN
 import com.example.gigsandcare.util.Constants.HOME_SCREEN
 import com.example.gigsandcare.util.Constants.PROFILE_SCREEN
 import com.example.gigsandcare.util.Constants.PROGRAM_DETAIL_SCREEN
+import com.example.gigsandcare.util.Constants.PROGRAM_LIST_SCREEN
 import com.example.gigsandcare.util.Constants.SIGN_IN_SCREEN
 import com.example.gigsandcare.util.Constants.SIGN_UP_SCREEN
 import com.example.gigsandcare.util.Constants.SUCCESS_DONATION_SCREEN
+import com.example.gigsandcare.util.Constants.UPCOMING_CONCERT_SCREEN
 import com.example.gigsandcare.util.Constants.WELCOME_SCREEN
 
 const val ROOT_ROUTE = "root_route"
@@ -28,6 +30,8 @@ sealed class Screen(val route: String) {
     object History : Screen(HISTORY_SCREEN)
     object Profile : Screen(PROFILE_SCREEN)
     object CharityProgram : Screen(CHARITY_PROGRAM_SCREEN)
+    object UpcomingConcert : Screen(UPCOMING_CONCERT_SCREEN)
+    object ProgramList : Screen(PROGRAM_LIST_SCREEN)
     object ProgramDetail : Screen("$PROGRAM_DETAIL_SCREEN/{bannerId}/{programId}/{charityProgramId}/{concertId}") {
         fun programDetailRoute(
             bannerId: Int, programId: Int, charityProgramId: Int, concertId: Int

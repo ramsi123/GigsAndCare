@@ -23,6 +23,7 @@ object Constants {
     const val SUCCESS_DONATION_SCREEN = "Success Donation"
     const val CHARITY_PROGRAM_SCREEN = "Charity Program"
     const val UPCOMING_CONCERT_SCREEN = "Upcoming Concert"
+    const val PROGRAM_LIST_SCREEN = "Program List"
 
     // collection
     const val DONATE_COLLECTION = "userDonation"
@@ -55,6 +56,7 @@ object Constants {
     const val ANOTHER_PROGRAM = "Another Program"
     const val CHARITY_PROGRAM = "Charity Program"
     const val UPCOMING_CONCERT = "Upcoming Concert"
+    const val PROGRAM_LIST = "Programs"
     const val CHARITY_NEWS = "Charity News"
     const val EVENT_CALENDAR = "Event Calendar"
     const val CONCERT_LOCATION = "Concert Location"

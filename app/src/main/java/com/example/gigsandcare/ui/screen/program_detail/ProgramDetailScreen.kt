@@ -1,6 +1,5 @@
 package com.example.gigsandcare.ui.screen.program_detail
 
-import android.util.Log
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
@@ -40,8 +39,7 @@ fun ProgramDetailScreen(
     val bannerDetail by viewModel.bannerDetail.collectAsState()
     val programDetail by viewModel.programDetail.collectAsState()
     val charityProgramDetail by viewModel.charityProgramDetail.collectAsState()
-    val user by viewModel.user.collectAsState()
-    val userData by viewModel.userData
+    val concertDetail by viewModel.concertDetail.collectAsState()
 
     // to get data for program detail or banner detail
     LaunchedEffect(key1 = true) {
@@ -51,13 +49,9 @@ fun ProgramDetailScreen(
             viewModel.getProgramDetail(programId)
         } else if (bannerId == -1 && programId == -1 && concertId == -1) {
             viewModel.getCharityProgramDetail(charityProgramId)
+        } else if (bannerId == -1 && programId == -1 && charityProgramId == -1) {
+            viewModel.getConcertDetail(concertId)
         }
-    }
-
-    // get user history data
-    LaunchedEffect(key1 = true) {
-        viewModel.getUserHistoryData()
-        Log.i("MyTag", user.userId)
     }
 
     if (showSheet) {
@@ -84,35 +78,18 @@ fun ProgramDetailScreen(
         )
     }
 
-    // if (bannerId == -1) programDetail else bannerDetail
-
     ProgramDetailContent(
         modifier = modifier,
         program = if (programId == -1 && charityProgramId == -1 && concertId == -1) {
             bannerDetail
         } else if (bannerId == -1 && charityProgramId == -1 && concertId == -1) {
             programDetail
-        } else  {
+        } else if (bannerId == -1 && programId == -1 && concertId == -1) {
             charityProgramDetail
+        } else {
+            concertDetail
         },
         onClickBuyTicketAndDonation = {
-            /*if (bannerId == -1) {
-                navController.navigate(
-                    Screen.BuyTicket.buyDetailRoute(
-                        title = programDetail.title,
-                        organizer = programDetail.organizer,
-                        price = programDetail.price
-                    )
-                )
-            } else {
-                navController.navigate(
-                    Screen.BuyTicket.buyDetailRoute(
-                        title = bannerDetail.title,
-                        organizer = bannerDetail.organizer,
-                        price = bannerDetail.price
-                    )
-                )
-            }*/
             if (programId == -1 && charityProgramId == -1 && concertId == -1) {
                 navController.navigate(
                     Screen.BuyTicket.buyDetailRoute(
@@ -135,6 +112,14 @@ fun ProgramDetailScreen(
                         title = charityProgramDetail.title,
                         organizer = charityProgramDetail.organizer,
                         price = charityProgramDetail.price
+                    )
+                )
+            } else if (bannerId == -1 && programId == -1 && charityProgramId == -1) {
+                navController.navigate(
+                    Screen.BuyTicket.buyDetailRoute(
+                        title = concertDetail.title,
+                        organizer = concertDetail.organizer,
+                        price = concertDetail.price
                     )
                 )
             }
