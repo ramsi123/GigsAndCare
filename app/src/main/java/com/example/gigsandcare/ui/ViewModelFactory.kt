@@ -3,7 +3,10 @@ package com.example.gigsandcare.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.gigsandcare.data.GigsAndCareRepository
+import com.example.gigsandcare.ui.screen.charity_news.CharityNewsViewModel
+import com.example.gigsandcare.ui.screen.charity_news_detail.CharityNewsDetailViewModel
 import com.example.gigsandcare.ui.screen.charity_program.CharityProgramViewModel
+import com.example.gigsandcare.ui.screen.event_calendar.EventCalendarViewModel
 import com.example.gigsandcare.ui.screen.forgot_password.ForgotPasswordViewModel
 import com.example.gigsandcare.ui.screen.history.HistoryViewModel
 import com.example.gigsandcare.ui.screen.home.HomeViewModel
@@ -41,6 +44,12 @@ class ViewModelFactory(private val repository: GigsAndCareRepository) : ViewMode
             return UpcomingConcertViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(ProgramListViewModel::class.java)) {
             return ProgramListViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(CharityNewsViewModel::class.java)) {
+            return CharityNewsViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(CharityNewsDetailViewModel::class.java)) {
+            return CharityNewsDetailViewModel(repository) as T
+        } else if (modelClass.isAssignableFrom(EventCalendarViewModel::class.java)) {
+            return EventCalendarViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

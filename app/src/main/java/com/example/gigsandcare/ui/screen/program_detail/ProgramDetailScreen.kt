@@ -35,7 +35,7 @@ fun ProgramDetailScreen(
 ) {
     var showSheet by remember { mutableStateOf(false) }
     var amount by remember { mutableStateOf("") }
-    val sheetState = rememberModalBottomSheetState()
+    //val sheetState = rememberModalBottomSheetState()
     val bannerDetail by viewModel.bannerDetail.collectAsState()
     val programDetail by viewModel.programDetail.collectAsState()
     val charityProgramDetail by viewModel.charityProgramDetail.collectAsState()
@@ -56,7 +56,7 @@ fun ProgramDetailScreen(
 
     if (showSheet) {
         DonationBottomSheet(
-            sheetState = sheetState,
+            sheetState = rememberModalBottomSheetState(),
             amount = amount,
             onAmountChange = {
                 amount = it

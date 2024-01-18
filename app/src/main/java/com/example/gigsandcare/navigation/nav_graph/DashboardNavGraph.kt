@@ -10,7 +10,10 @@ import androidx.navigation.navigation
 import com.example.gigsandcare.navigation.DASHBOARD_ROUTE
 import com.example.gigsandcare.navigation.Screen
 import com.example.gigsandcare.ui.screen.buy_ticket.BuyTicketScreen
+import com.example.gigsandcare.ui.screen.charity_news.CharityNewsScreen
+import com.example.gigsandcare.ui.screen.charity_news_detail.CharityNewsDetailScreen
 import com.example.gigsandcare.ui.screen.charity_program.CharityProgramScreen
+import com.example.gigsandcare.ui.screen.event_calendar.EventCalendarScreen
 import com.example.gigsandcare.ui.screen.home.HomeScreen
 import com.example.gigsandcare.ui.screen.profile.ProfileScreen
 import com.example.gigsandcare.ui.screen.history.HistoryScreen
@@ -45,6 +48,27 @@ fun NavGraphBuilder.dashboardNavGraph(
         }
         composable(Screen.UpcomingConcert.route) {
             UpcomingConcertScreen(navController = navController)
+        }
+        composable(Screen.CharityNews.route) {
+            CharityNewsScreen(navController = navController)
+        }
+        composable(
+            route = Screen.CharityNewsDetail.route,
+            arguments = listOf(
+                navArgument("latestNewsId") { type = NavType.IntType },
+                navArgument("recommendedTopicId") { type = NavType.IntType }
+            )
+        ) {
+            val latestNewsId = it.arguments?.getInt("latestNewsId") ?: -1
+            val recommendedTopicId = it.arguments?.getInt("recommendedTopicId") ?: -1
+            CharityNewsDetailScreen(
+                navController = navController,
+                latestNewsId = latestNewsId,
+                recommendedTopicId = recommendedTopicId
+            )
+        }
+        composable(Screen.EventCalendar.route) {
+            EventCalendarScreen(navController = navController)
         }
         composable(Screen.ProgramList.route) {
             ProgramListScreen(navController = navController)

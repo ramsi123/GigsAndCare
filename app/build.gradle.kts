@@ -35,6 +35,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -61,6 +62,9 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3:1.1.2")
+
+    // coreLibraryDesugaring
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
 
     // authentication
     implementation("com.google.firebase:firebase-auth:22.3.0")
@@ -102,6 +106,13 @@ dependencies {
 
     // coil
     implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // Material 3 CORE
+    implementation("com.maxkeppeler.sheets-compose-dialogs:core:1.2.1")
+    // Material 3 - CALENDAR
+    implementation("com.maxkeppeler.sheets-compose-dialogs:calendar:1.2.1")
+    // Material 3 - CLOCK
+    implementation("com.maxkeppeler.sheets-compose-dialogs:clock:1.2.1")
 
     // testing
     testImplementation("junit:junit:4.13.2")

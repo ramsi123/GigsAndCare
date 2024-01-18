@@ -1,8 +1,11 @@
 package com.example.gigsandcare.navigation
 
 import com.example.gigsandcare.util.Constants.BUY_TICKET_SCREEN
+import com.example.gigsandcare.util.Constants.CHARITY_NEWS_DETAIL_SCREEN
+import com.example.gigsandcare.util.Constants.CHARITY_NEWS_SCREEN
 import com.example.gigsandcare.util.Constants.CHARITY_PROGRAM_SCREEN
 import com.example.gigsandcare.util.Constants.DASHBOARD_SCREEN
+import com.example.gigsandcare.util.Constants.EVENT_CALENDAR_SCREEN
 import com.example.gigsandcare.util.Constants.FORGOT_PASSWORD_SCREEN
 import com.example.gigsandcare.util.Constants.HISTORY_SCREEN
 import com.example.gigsandcare.util.Constants.HOME_SCREEN
@@ -31,6 +34,11 @@ sealed class Screen(val route: String) {
     object Profile : Screen(PROFILE_SCREEN)
     object CharityProgram : Screen(CHARITY_PROGRAM_SCREEN)
     object UpcomingConcert : Screen(UPCOMING_CONCERT_SCREEN)
+    object CharityNews : Screen(CHARITY_NEWS_SCREEN)
+    object EventCalendar : Screen(EVENT_CALENDAR_SCREEN)
+    object CharityNewsDetail : Screen("$CHARITY_NEWS_DETAIL_SCREEN/{latestNewsId}/{recommendedTopicId}") {
+        fun CharityNewsDetailRoute(latestNewsId: Int, recommendedTopicId: Int) = "$CHARITY_NEWS_DETAIL_SCREEN/$latestNewsId/$recommendedTopicId"
+    }
     object ProgramList : Screen(PROGRAM_LIST_SCREEN)
     object ProgramDetail : Screen("$PROGRAM_DETAIL_SCREEN/{bannerId}/{programId}/{charityProgramId}/{concertId}") {
         fun programDetailRoute(

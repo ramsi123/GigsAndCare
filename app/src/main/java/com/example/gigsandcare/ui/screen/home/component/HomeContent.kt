@@ -36,7 +36,7 @@ import com.example.gigsandcare.ui.theme.ghostWhite
 import com.example.gigsandcare.util.Constants.ANOTHER_PROGRAM
 import com.example.gigsandcare.util.Constants.SEARCH
 import com.example.gigsandcare.util.Constants.SHORTCUT
-import com.example.gigsandcare.util.Constants.TITLE
+import com.example.gigsandcare.util.Constants.APPLICATION_TITLE
 import com.example.gigsandcare.util.Constants.TOP_PROGRAM
 import com.example.gigsandcare.util.Constants.VIEW_ALL
 
@@ -66,7 +66,7 @@ fun HomeContent(
     ) {
         Text(
             modifier = modifier.fillMaxWidth(),
-            text = TITLE,
+            text = APPLICATION_TITLE,
             color = Color.Black,
             style = TextStyle(
                 fontSize = 30.sp,

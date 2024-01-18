@@ -65,8 +65,12 @@ fun HomeScreen(
         navigateToUpcomingConcert = {
             navController.navigate(Screen.UpcomingConcert.route)
         },
-        navigateToCharityNews = {},
-        navigateToEventCalendar = {},
+        navigateToCharityNews = {
+            navController.navigate(Screen.CharityNews.route)
+        },
+        navigateToEventCalendar = {
+            navController.navigate(Screen.EventCalendar.route)
+        },
         navigateToProgramList = {
             navController.navigate(Screen.ProgramList.route)
         }

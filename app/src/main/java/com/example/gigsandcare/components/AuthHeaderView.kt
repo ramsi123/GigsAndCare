@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.gigsandcare.R
-import com.example.gigsandcare.util.Constants.TITLE
+import com.example.gigsandcare.util.Constants.APPLICATION_TITLE
 
 @Composable
 fun AuthHeaderView(
@@ -47,7 +47,7 @@ fun AuthHeaderView(
                 contentDescription = null
             )
             Text(
-                text = TITLE,
+                text = APPLICATION_TITLE,
                 color = Color.Black,
                 style = TextStyle(
                     fontSize = 40.sp,

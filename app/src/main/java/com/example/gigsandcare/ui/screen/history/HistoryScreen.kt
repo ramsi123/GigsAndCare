@@ -40,6 +40,9 @@ fun HistoryScreen(
 
     // calculate user's activity and convert it from UserDonation into UserHistory
     LaunchedEffect(key1 = userHistoryData) {
+        totalPeoplesHelped = 0
+        totalDonation = 0
+        totalProgram = 0
         for (data in userHistoryData) {
             totalPeoplesHelped += data.peoplesHelped
             totalDonation += data.totalSpend

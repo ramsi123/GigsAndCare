@@ -33,10 +33,10 @@ fun TopBar(
         title = {
             Text(
                 text = title,
-                color = Color.White,
+                color = Color.Black,
                 style = TextStyle(
-                    fontStyle = FontStyle.Italic,
-                    fontFamily = FontFamily(Font((R.font.josefin_sans_semibold_italic))),
+                    fontStyle = FontStyle.Normal,
+                    fontFamily = FontFamily(Font((R.font.josefin_sans_semibold))),
                     fontSize = 22.sp
                 )
             )
@@ -48,7 +48,7 @@ fun TopBar(
                     navigateBack()
                 },
                 colors = IconButtonDefaults.iconButtonColors(
-                    contentColor = Color.White
+                    contentColor = Color.Black
                 )
             ) {
                 Icon(imageVector = Icons.Default.ArrowBack, contentDescription = null)

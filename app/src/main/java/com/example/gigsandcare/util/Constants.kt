@@ -23,10 +23,14 @@ object Constants {
     const val SUCCESS_DONATION_SCREEN = "Success Donation"
     const val CHARITY_PROGRAM_SCREEN = "Charity Program"
     const val UPCOMING_CONCERT_SCREEN = "Upcoming Concert"
+    const val CHARITY_NEWS_SCREEN = "Charity News"
+    const val EVENT_CALENDAR_SCREEN = "Event Calendar"
+    const val CHARITY_NEWS_DETAIL_SCREEN = "Charity News Detail"
     const val PROGRAM_LIST_SCREEN = "Program List"
 
     // collection
     const val DONATE_COLLECTION = "userDonation"
+    const val EVENT_CALENDAR_COLLECTION = "eventCalendar"
 
     // Labels
     const val EMAIL_LABEL = "Email Address"
@@ -36,7 +40,7 @@ object Constants {
     const val EMPTY_STRING = ""
 
     // Texts
-    const val TITLE = "Gigs & Care"
+    const val APPLICATION_TITLE = "Gigs & Care"
     const val WELCOME_TITLE = "All in one app that combine entertainment and social good"
     const val WELCOME_DESCRIPTION = "This app presents as an opportunity for users to contribute to charity without sacrificing their enjoyment"
     const val SIGN_UP_TITLE = "Create your new account"
@@ -56,7 +60,6 @@ object Constants {
     const val ANOTHER_PROGRAM = "Another Program"
     const val CHARITY_PROGRAM = "Charity Program"
     const val UPCOMING_CONCERT = "Upcoming Concert"
-    const val PROGRAM_LIST = "Programs"
     const val CHARITY_NEWS = "Charity News"
     const val EVENT_CALENDAR = "Event Calendar"
     const val CONCERT_LOCATION = "Concert Location"
@@ -89,6 +92,16 @@ object Constants {
     const val DONATION_FOR_CHARITY = "Donation For Charity"
     const val TOTAL = "Total"
     const val PAY_NOW = "Pay Now!"
+    const val LATEST_NEWS = "Latest News"
+    const val RECOMMENDED_TOPIC = "Recommended Topic"
+    const val NEWS_DETAIL_TITLE = "News Detail"
+    const val ADD_UPCOMING_EVENT = "Add Your Upcoming Event"
+    const val ADD_EVENT = "Add Event"
+    const val TITLE = "Title"
+    const val DATE = "Date Event"
+    const val DESCRIPTION = "Description"
+    const val PICK_DATE = "Pick your event's date"
+    const val NO_EVENT_CALENDAR = "No Event Calendar"
 
     // image description
     const val GREEN_HOUSE = "Green house"
