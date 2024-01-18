@@ -155,7 +155,7 @@ fun BuyTicketContent(
             Spacer(modifier = modifier.height(10.dp))
             PaymentInputField(
                 title = Constants.PAYMENT_METHOD,
-                image = R.drawable.auth_icon,
+                image = R.drawable.mastercard,
                 value = Constants.TEMP_PAYMENT_METHOD
             )
         }

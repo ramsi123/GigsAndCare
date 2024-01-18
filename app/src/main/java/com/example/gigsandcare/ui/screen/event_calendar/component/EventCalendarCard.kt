@@ -1,6 +1,5 @@
 package com.example.gigsandcare.ui.screen.event_calendar.component
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth

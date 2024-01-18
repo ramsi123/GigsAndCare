@@ -72,7 +72,7 @@ fun DonationBottomSheet(
             Spacer(modifier = modifier.height(10.dp))
             PaymentInputField(
                 title = PAYMENT_METHOD,
-                image = R.drawable.auth_icon,
+                image = R.drawable.mastercard,
                 value = TEMP_PAYMENT_METHOD
             )
             Spacer(modifier = modifier.height(20.dp))
