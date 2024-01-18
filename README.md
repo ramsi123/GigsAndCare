@@ -13,7 +13,7 @@ Gigs & Care is an innovative platform that combines the joy of entertainment and
 Download [link](https://drive.google.com/file/d/1UP4MIcZuSNelUADwHLtXHkef7mqMCXSA/view?usp=sharing) of Gigs & Care
 
 # Screenshots
-<img src="https://i.imgur.com/ZOlt8Rd.jpeg" width="25%" height="25%" alt="Welcome Screen"/> <img src="https://i.imgur.com/QyHNsrr.jpeg" width="25%" height="25%" alt="Sign In Screen"/> <img src="https://i.imgur.com/nsLsI4a.jpeg" width="25%" height="25%" alt="Sign Up Screen"/> <img src="https://i.imgur.com/bzZnPji.jpeg" width="25%" height="25%" alt="Home Screen"/> <img src="https://i.imgur.com/rp0DyDJ.jpeg" width="25%" height="25%" alt="History Screen"/> <img src="https://i.imgur.com/cloCVPt.jpeg" width="25%" height="25%" alt="Profile Screen"/>
+<img src="https://i.imgur.com/ZOlt8Rd.jpeg" width="25%" height="25%" alt="Welcome Screen"/> <img src="https://i.imgur.com/QyHNsrr.jpeg" width="25%" height="25%" alt="Sign In Screen"/> <img src="https://i.imgur.com/nsLsI4a.jpeg" width="25%" height="25%" alt="Sign Up Screen"/> <img src="https://i.imgur.com/bzZnPji.jpeg" width="25%" height="25%" alt="Home Screen"/> <img src="https://i.imgur.com/rp0DyDJ.jpeg" width="25%" height="25%" alt="History Screen"/> <img src="https://i.imgur.com/gljtN2p.jpeg" width="25%" height="25%" alt="Profile Screen"/>
 
 ## Features of Gigs & Care App
 - Authenticate with google and email through Firebase Authentication
