@@ -10,23 +10,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.gigsandcare.components.DonationBottomSheet
 import com.example.gigsandcare.data.model.UserDonation
-import com.example.gigsandcare.di.Injection
 import com.example.gigsandcare.navigation.Screen
-import com.example.gigsandcare.ui.ViewModelFactory
 import com.example.gigsandcare.ui.screen.program_detail.component.ProgramDetailContent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProgramDetailScreen(
     modifier: Modifier = Modifier,
-    viewModel: ProgramDetailViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideGigsAndCareRepository(LocalContext.current))
-    ),
+    viewModel: ProgramDetailViewModel = hiltViewModel(),
     navController: NavHostController,
     bannerId: Int,
     programId: Int,

@@ -5,20 +5,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.example.gigsandcare.data.model.dummyLatestNews
-import com.example.gigsandcare.di.Injection
-import com.example.gigsandcare.ui.ViewModelFactory
 import com.example.gigsandcare.ui.screen.charity_news_detail.component.CharityNewsDetailContent
 
 @Composable
 fun CharityNewsDetailScreen(
     modifier: Modifier = Modifier,
-    viewModel: CharityNewsDetailViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideGigsAndCareRepository(LocalContext.current))
-    ),
+    viewModel: CharityNewsDetailViewModel = hiltViewModel(),
     navController: NavHostController,
     latestNewsId: Int,
     recommendedTopicId: Int

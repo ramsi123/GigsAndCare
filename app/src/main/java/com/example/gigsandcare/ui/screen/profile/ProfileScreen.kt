@@ -11,19 +11,15 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.gigsandcare.ui.ViewModelFactory
-import com.example.gigsandcare.di.Injection
 import com.example.gigsandcare.ui.screen.profile.component.ProfileContent
 import kotlinx.coroutines.launch
 
 @Composable
 fun ProfileScreen(
     modifier: Modifier = Modifier,
-    viewModel: ProfileViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideGigsAndCareRepository(LocalContext.current))
-    ),
+    viewModel: ProfileViewModel = hiltViewModel(),
     navController: NavHostController,
     logOut: () -> Unit
 ) {

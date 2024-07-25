@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("kotlin-kapt")
-    id("kotlin-parcelize")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -106,6 +106,12 @@ dependencies {
 
     // coil
     implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // Dagger - Hilt
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48")
+    kapt("androidx.hilt:hilt-compiler:1.1.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0-alpha01")
 
     // Material 3 CORE
     implementation("com.maxkeppeler.sheets-compose-dialogs:core:1.2.1")

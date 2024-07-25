@@ -8,21 +8,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.gigsandcare.di.Injection
 import com.example.gigsandcare.navigation.Screen
-import com.example.gigsandcare.ui.ViewModelFactory
 import com.example.gigsandcare.ui.screen.program_list.component.ProgramListContent
 import com.example.gigsandcare.util.Constants.PROGRAMS
 
 @Composable
 fun ProgramListScreen(
     modifier: Modifier = Modifier,
-    viewModel: ProgramListViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideGigsAndCareRepository(LocalContext.current))
-    ),
+    viewModel: ProgramListViewModel = hiltViewModel(),
     navController: NavHostController
 ) {
     var search by remember { mutableStateOf("") }

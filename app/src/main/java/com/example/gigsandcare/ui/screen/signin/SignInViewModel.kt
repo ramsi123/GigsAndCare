@@ -10,12 +10,17 @@ import com.example.agrisight.ui.common.UiState
 import com.example.gigsandcare.data.GigsAndCareRepository
 import com.example.gigsandcare.ui.screen.signin.component.SignInResult
 import com.example.gigsandcare.ui.screen.signin.component.SignInState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SignInViewModel(private val repository: GigsAndCareRepository) : ViewModel() {
+@HiltViewModel
+class SignInViewModel @Inject constructor(
+    private val repository: GigsAndCareRepository
+) : ViewModel() {
 
     private val _googleAccountState = MutableStateFlow(SignInState())
     val googleAccountState = _googleAccountState.asStateFlow()

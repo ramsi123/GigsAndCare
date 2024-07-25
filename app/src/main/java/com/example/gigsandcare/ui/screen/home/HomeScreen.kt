@@ -10,10 +10,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.example.gigsandcare.ui.ViewModelFactory
-import com.example.gigsandcare.di.Injection
 import com.example.gigsandcare.navigation.Screen
 import com.example.gigsandcare.ui.screen.home.component.HomeContent
 
@@ -21,9 +19,7 @@ import com.example.gigsandcare.ui.screen.home.component.HomeContent
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideGigsAndCareRepository(LocalContext.current))
-    ),
+    viewModel: HomeViewModel = hiltViewModel(),
     navController: NavHostController
 ) {
     val context = LocalContext.current

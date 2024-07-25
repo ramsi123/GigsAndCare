@@ -5,13 +5,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gigsandcare.data.GigsAndCareRepository
 import com.example.gigsandcare.data.model.EventCalendar
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class EventCalendarViewModel(private val repository: GigsAndCareRepository) : ViewModel() {
+@HiltViewModel
+class EventCalendarViewModel @Inject constructor(
+    private val repository: GigsAndCareRepository
+) : ViewModel() {
 
     private val _eventCalendar: MutableStateFlow<List<EventCalendar>> = MutableStateFlow(emptyList())
     val eventCalendar: StateFlow<List<EventCalendar>> = _eventCalendar.asStateFlow()

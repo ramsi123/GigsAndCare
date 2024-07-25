@@ -5,19 +5,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.gigsandcare.ui.ViewModelFactory
 import com.example.agrisight.ui.common.UiState
 import com.example.gigsandcare.ui.screen.signup.SignUpViewModel
 import com.example.gigsandcare.components.ProgressBar
-import com.example.gigsandcare.di.Injection
 
 @Composable
 fun SignUp(
-    viewModel: SignUpViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideGigsAndCareRepository(LocalContext.current))
-    ),
+    viewModel: SignUpViewModel = hiltViewModel(),
     navigateToHomeScreen: () -> Unit
 ) {
     val context = LocalContext.current

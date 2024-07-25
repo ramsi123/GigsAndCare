@@ -12,14 +12,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.gigsandcare.ui.ViewModelFactory
-import com.example.gigsandcare.di.Injection
 import com.example.gigsandcare.navigation.Screen
 import com.example.gigsandcare.ui.screen.signup.component.SignUp
 import com.example.gigsandcare.ui.screen.signup.component.SignUpContent
@@ -30,9 +27,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun SignUpScreen(
     modifier: Modifier = Modifier,
-    viewModel: SignUpViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideGigsAndCareRepository(LocalContext.current))
-    ),
+    viewModel: SignUpViewModel = hiltViewModel(),
     navController: NavHostController
 ) {
     val coroutineScope = rememberCoroutineScope()

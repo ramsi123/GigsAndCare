@@ -7,13 +7,18 @@ import com.example.gigsandcare.data.GigsAndCareRepository
 import com.example.gigsandcare.data.model.UserDonation
 import com.example.gigsandcare.data.model.UserHistory
 import com.example.gigsandcare.ui.screen.signin.component.UserData
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HistoryViewModel(private val repository: GigsAndCareRepository) : ViewModel() {
+@HiltViewModel
+class HistoryViewModel @Inject constructor(
+    private val repository: GigsAndCareRepository
+) : ViewModel() {
 
     private val _user: MutableStateFlow<UserData> = MutableStateFlow(UserData(userId = "", email = "", profilePictureUrl = ""))
     val user = _user.asStateFlow()

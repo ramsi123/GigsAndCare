@@ -7,9 +7,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.agrisight.ui.common.UiState
 import com.example.gigsandcare.data.GigsAndCareRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ForgotPasswordViewModel(private val repository: GigsAndCareRepository) : ViewModel() {
+@HiltViewModel
+class ForgotPasswordViewModel @Inject constructor(
+    private val repository: GigsAndCareRepository
+) : ViewModel() {
 
     var resetPasswordState by mutableStateOf<UiState<Boolean>>(UiState.Idle)
         private set

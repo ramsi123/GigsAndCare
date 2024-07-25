@@ -12,13 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.gigsandcare.ui.ViewModelFactory
 import com.example.agrisight.ui.common.UiState
 import com.example.gigsandcare.components.ProgressBar
-import com.example.gigsandcare.di.Injection
 import com.example.gigsandcare.ui.screen.forgot_password.component.ForgotPasswordContent
 import com.example.gigsandcare.util.Constants.EMPTY_STRING
 
@@ -27,9 +25,7 @@ import com.example.gigsandcare.util.Constants.EMPTY_STRING
 fun ForgotPasswordScreen(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    viewModel: ForgotPasswordViewModel = viewModel(
-        factory = ViewModelFactory(Injection.provideGigsAndCareRepository(LocalContext.current))
-    )
+    viewModel: ForgotPasswordViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val resetPasswordState = viewModel.resetPasswordState

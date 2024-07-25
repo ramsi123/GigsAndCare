@@ -1,6 +1,5 @@
 package com.example.gigsandcare.data
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
@@ -29,15 +28,18 @@ import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.toObject
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.tasks.await
 import java.time.LocalDate
+import javax.inject.Inject
 import kotlin.coroutines.cancellation.CancellationException
 
-class GigsAndCareRepository(
-    private val context: Context,
+@ViewModelScoped
+class GigsAndCareRepository @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val auth: FirebaseAuth,
     private val firestore: FirebaseFirestore,
     private val oneTapClient: SignInClient
@@ -268,20 +270,5 @@ class GigsAndCareRepository(
         UiState.Success(true)
     } catch (e: Exception) {
         e.message?.let { UiState.Error(it) }
-    }
-
-    companion object {
-        @SuppressLint("StaticFieldLeak")
-        @Volatile
-        private var instance: GigsAndCareRepository? = null
-        fun getInstance(
-            context: Context,
-            auth: FirebaseAuth,
-            firestore: FirebaseFirestore,
-            oneTapClient: SignInClient
-        ): GigsAndCareRepository =
-            instance ?: synchronized(this) {
-                instance ?: GigsAndCareRepository(context, auth, firestore, oneTapClient)
-            }.also { instance = it }
     }
 }

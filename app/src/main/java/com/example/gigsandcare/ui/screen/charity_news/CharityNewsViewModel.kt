@@ -4,12 +4,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gigsandcare.data.GigsAndCareRepository
 import com.example.gigsandcare.data.model.News
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CharityNewsViewModel(private val repository: GigsAndCareRepository) : ViewModel() {
+@HiltViewModel
+class CharityNewsViewModel @Inject constructor(
+    private val repository: GigsAndCareRepository
+) : ViewModel() {
 
     private val _latestNews: MutableStateFlow<List<News>> = MutableStateFlow(emptyList())
     val latestNews: StateFlow<List<News>> = _latestNews.asStateFlow()

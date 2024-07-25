@@ -5,12 +5,17 @@ import androidx.lifecycle.viewModelScope
 import com.example.gigsandcare.data.GigsAndCareRepository
 import com.example.gigsandcare.data.model.Program
 import com.example.gigsandcare.data.model.UserDonation
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProgramDetailViewModel(private val repository: GigsAndCareRepository) : ViewModel() {
+@HiltViewModel
+class ProgramDetailViewModel @Inject constructor(
+    private val repository: GigsAndCareRepository
+) : ViewModel() {
 
     private val _bannerDetail: MutableStateFlow<Program> = MutableStateFlow(Program())
     val bannerDetail: StateFlow<Program> = _bannerDetail.asStateFlow()
